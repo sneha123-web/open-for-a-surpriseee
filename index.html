@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surprise for Saurojoy</title>
+  <style>
+    body {
+      background-color: #ffe4ec;
+      font-family: 'Times New Roman', cursive, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      color: #d63384;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #555;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .kitten {
+      width: 200px;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .cloud {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      color: #c2185b;
+    }
+
+    .doors {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .door {
+      width: 120px;
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      border: 3px solid #ffb3c6;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .door:hover {
+      transform: scale(1.1);
+    }
+
+    .hidden-content {
+      display: none;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .hidden-content img {
+      width: 180px;
+      margin-top: 20px;
+    }
+
+    .message {
+      font-size: 1.3rem;
+      color: #c2185b;
+      margin-top: 20px;
+    }
+
+    .back-btn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #f8bbd0;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #f48fb1;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://i.imgur.com/6ZkFtM2.png" alt="Cute Kitten" class="kitten"/>
+  <div class="cloud">
+    Hello Saurojoy, heard you have not been feeling well. Here's a surprise for you. Pick a door.
+  </div>
+
+  <div class="doors">
+    <div class="door" style="background-image: url('https://i.imgur.com/8HywDSh.png');" onclick="openDoor(1)"></div>
+    <div class="door" style="background-image: url('https://i.imgur.com/8HywDSh.png');" onclick="openDoor(3)"></div>
+  </div>
+
+  <div class="hidden-content" id="content1">
+    <img src="https://i.imgur.com/3tpVkFj.png" alt="Envelope" style="width: 150px; cursor: pointer;" onclick="showLetter()" />
+    <div class="message" id="letter" style="display:none;">
+      Hello, my love, being soooo far away from you physically pains my heart but what you will always have to know is, I'm right there with you every step of the way and I will always be. At all the times when my arms cannot hold you, my heart will.<br><br>
+      Love, now and always, Sneha 💌
+    </div>
+    <button class="back-btn" onclick="goBack()">What's behind the other doors?</button>
+  </div>
+
+  <div class="hidden-content" id="content3">
+    <h2>You're loved! 💕</h2>
+    <p class="message">flowers for the handsome-est man to ever existtttt 🌹</p>
+    <img src="https://i.imgur.com/j4guTxq.png" alt="Flowers"/>
+    <button class="back-btn" onclick="goBack()">What's behind the other doors?</button>
+  </div>
+
+  <script>
+    function openDoor(doorNumber) {
+      document.querySelector('.doors').style.display = 'none';
+      if (doorNumber === 1) {
+        document.getElementById('content1').style.display = 'block';
+      } else if (doorNumber === 3) {
+        document.getElementById('content3').style.display = 'block';
+      }
+    }
+
+    function goBack() {
+      document.getElementById('content1').style.display = 'none';
+      document.getElementById('content3').style.display = 'none';
+      document.querySelector('.doors').style.display = 'flex';
+    }
+
+    function showLetter() {
+      document.getElementById('letter').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
